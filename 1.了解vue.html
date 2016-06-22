@@ -6,19 +6,29 @@
 </head>
 <body>
 <div id="app">
+    <!--解析html标签使用三个{{{}}}-->
+    {{{name}}}
     {{name}}
 </div> <!--当前id可以用于vue绑定内容-->
 <div id="app1">
+    <!--{{}}支持三元表达式-->
+    双向{{name==='hello world1'?'zfpx':name}}
+    {{3+5*2}} <br>
+    <!--有的时候数据只绑定一次，当修改的时候就不再绑定了-->
+    {{*name}} <br>
     {{name}}
+    <!--通过v-model实现双向数据绑定-->
+    <input type="text" v-model="name">
 </div>
 <script src="vue.js"></script>
 <script>
+    //view <- viewModel  -> model
     //创建一个Vue的实例 vm = $scope  vm就是当前的viewModel
     var vm = new Vue({
         el:"#app", //选择作用的范围
         //绑定数据
         data:{ //在这绑定的是数据层
-            name:'hello world' //$scope.name = 1;
+            name:'<h1>HelloWorld</h1>' //$scope.name = 1;
         }
     });
     var vm1 = new Vue({
