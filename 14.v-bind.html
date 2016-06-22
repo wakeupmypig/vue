@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <img :src="src">
+    <a :href="src1">hello</a>
+    <div @click="dosome(1,$event)">hello world</div>
+</div>
+<SCRIPT SRC="VUE.JS"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            src:'http://vuejs.org/images/logo.png',
+            src1:'http://www.baidu.com'
+        },
+        //当前要执行的方法写在methods中 用@符号或者v-on进行绑定
+        //当我们不进行参数的传递 不用写()如果要传递参数
+        methods:{
+            //如果有参数 需要手动传递event
+            dosome: function (e,ev) {
+                console.log(ev);
+                alert(1);
+            }
+        }
+    });
+    //v-bind 绑定动态数据 简写:
+</script>
+</body>
+</html>
