@@ -5,7 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<div id="app"></div>
+<div id="app">
+    {{name}}
+</div>
 <script src="vue.js"></script>
 <script>
     //router + vue-resource + vue
@@ -32,8 +34,10 @@
             alert('销毁完成');
         }
     });
+    //手动挂载指定元素
     vm.$mount('#app');
-    vm.$destroy();
+    //销毁实例
+    //vm.$destroy();
 </script>
 </body>
 </html>
