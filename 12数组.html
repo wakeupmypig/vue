@@ -6,8 +6,9 @@
 </head>
 <body>
 <div id="app">
-    <div v-for="book in books">
-        {{$index}}{{book.name}} {{book.price}}
+    <!--可以用括号的形式 第一个参数是当前索引 第二个是数组的每一项   index = $index-->
+    <div v-for="book in books " track-by="$index">
+        {{book}}
     </div>
 </div>
 <script src="vue.js"></script>
@@ -16,10 +17,10 @@
         el:'#app',
         data:{
             books:[
-                {name:'javascript',price:50},
-                {name:'node',price:50},
-                {name:'ajax',price:50},
-                {name:'vue',price:50},
+                "苹果",
+                "苹果",
+                "苹果",
+                "苹果"
             ]
         }
     })
