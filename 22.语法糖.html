@@ -6,15 +6,34 @@
 </head>
 <body>
 <div id="app">
-    <parent>
-
-    </parent>
+    <parent> </parent>
+    <template id="parent">
+        <div>parent</div>
+        <div>parent</div>
+        <ch></ch>
+    </template>
+    <template id="child">
+        <div>child</div>
+        <div>child</div>
+    </template>
 </div>
 <script src="vue.js"></script>
 <script>
     //组件的嵌套
     //先创建自组件，子组件创建后插到父组件里
-    var child = Vue.extend({
+    Vue.component('parent',{
+        template:'#parent',
+        components:{
+            ch:{
+                template:'#child'
+            }
+        }
+    })
+
+
+
+
+    /*var child = Vue.extend({
         template:'<div>child</div>'
     });
     //只能在父组件里使用
@@ -24,8 +43,8 @@
             ch:child
         }
     });
-
-    Vue.component('parent',parent);
+    //只注册了父亲组件
+    Vue.component('parent',parent);*/
 
 
     /*Vue.component('com',{
