@@ -35,6 +35,8 @@
 
     //组件的嵌套
     //先创建自组件，子组件创建后插到父组件里
+
+    //vuex
     Vue.component('parent',{
         template:'#parent',
         props:{ //对属性进行验证
@@ -46,17 +48,23 @@
                 twoWay:true, //要求必须是双向的
                 validator: function (v) {//不写的话没有校验器
                     //v就代表传进来的值 校验v的值是否是你的预期
-                    return v==='who are you6000'
+                    return true
+                    //v==='who are you6000'
                 },
                 coerce: function (v) {
                     console.log(v);
                     //传进来的值 强制进行改变 在验证之前
-                    return v+'6000';//之后开始检测type是否符合
+                    return v;//之后开始检测type是否符合
                 }
             },
             'message2':{
                 default: function () {
                     return 200
+                },
+                coerce: function (v) {
+                    console.log(v);
+                    //传进来的值 强制进行改变 在验证之前
+                    return 2000;//之后开始检测type是否符合
                 }
             }
         }, //属性
