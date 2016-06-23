@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="app">
-    <input type="text" v-on:keyup.b="tap" v-model="name">
+    <input type="text" v-on:keyup.b="tap | debounce 2000" v-model="name">
     <!--//根据我们数组的内容进行重复-->
     <div v-for="l in list" track-by="$index">
         {{l}} <button @click="del(l)">x</button>
