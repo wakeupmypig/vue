@@ -39,14 +39,14 @@
         template:'#parent',
         props:{ //对属性进行验证
             'message':{
-                type:[String], //只能传递字符串类型的
+                type:[String,Number,Array,Object], //只能传递字符串类型的
                 default: function () {
                     return 100 //默认值可以不符合type类型
                 },
                 twoWay:true, //要求必须是双向的
-                validator: function (v) {
-                    //v就代表传进来的值
-                    return true
+                validator: function (v) {//不写的话没有校验器
+                    //v就代表传进来的值 校验v的值是否是你的预期
+                    return v==='who are you6000'
                 },
                 coerce: function (v) {
                     console.log(v);
