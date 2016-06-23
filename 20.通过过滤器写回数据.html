@@ -7,12 +7,12 @@
 <body>
 <div id="app">
     <!--{{capitalize | capitalize 5}}-->
-    <input type="text" v-model="capitalize | capitalize 5">
+    <input type="text" v-model="capitalize | cap 5">
     {{capitalize}}
 </div>
 <script src="vue.js"></script>
 <script>
-    Vue.filter('capitalize', {
+    Vue.filter('cap', {
         read: function (val,begin,end) {
             return val.slice(0,begin).toUpperCase()
         },
