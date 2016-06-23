@@ -6,9 +6,13 @@
 </head>
 <body>
 <div id="app">
-    <parent> </parent>
+    <!--<table>
+        <tr is="parent"></tr>
+    </table>-->
+    //给parent 模板传递了一个msg变量
+    <parent :message="message"></parent>
     <template id="parent">
-        <div>parent</div>
+        <div>parent {{message}}</div>
         <div>parent</div>
         <ch></ch>
     </template>
@@ -23,12 +27,13 @@
     //先创建自组件，子组件创建后插到父组件里
     Vue.component('parent',{
         template:'#parent',
+        props:['message'], //属性
         components:{
             ch:{
                 template:'#child'
             }
         }
-    })
+    });
 
 
 
@@ -52,6 +57,9 @@
     });*/
     var vm = new Vue({
         el:'#app',
+        data:{
+            message:'who are you'
+        }
     });
 </script>
 </body>
