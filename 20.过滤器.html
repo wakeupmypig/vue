@@ -36,7 +36,7 @@
 
 
 
-
+    {{'abcdefg' | capitalize 2}}
 </div>
 <script src="vue.js"></script>
 <script>
@@ -48,11 +48,14 @@
     })*/
 
     //重写vue自带的
-
+    //自定义过滤器 默认首字母大写  指定几个大写
+    //val 是要格式化数据的内容
+    //begin 是开始 end 是结束
     Vue.filter('capitalize', function (val,begin,end) {
         //传入的第一个值 | capitalize 2 4
-        return val.slice(begin,end);
-    })
+        return val.slice(0,begin).toUpperCase()+val.slice(begin);
+    });
+
     var vm = new Vue({
         el:"#app",
         data:{
