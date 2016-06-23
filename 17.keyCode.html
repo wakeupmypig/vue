@@ -7,19 +7,29 @@
 </head>
 <body>
 <div id="app">
-
-    <input type="text" @keyup.enter="tap">
+    <input type="text" @keyup.enter="tap" v-model="name">
+    <!--//根据我们数组的内容进行重复-->
+    <div v-for="l in list" track-by="$index">
+        {{l}} <button @click="del(l)">x</button>
+    </div>
 </div>
 <script src="vue.js"></script>
 <script>
     var vm = new Vue({
         el:'#app',
         data:{
-
+            name:'',
+            list:[],
         },
         methods:{
             tap: function () {
-                alert('回车被抬起了')
+                if(this.name){
+                    this.list.push(this.name);
+                }
+                this.name = ''
+            },
+            del: function (l) {
+                this.list.$remove(l);
             }
         }
     });
