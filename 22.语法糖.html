@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <parent>
+
+    </parent>
+</div>
+<script src="vue.js"></script>
+<script>
+    //组件的嵌套
+    //先创建自组件，子组件创建后插到父组件里
+    var child = Vue.extend({
+        template:'<div>child</div>'
+    });
+    //只能在父组件里使用
+    var parent = Vue.extend({
+        template:'<div>parent</div><ch></ch>',
+        components:{
+            ch:child
+        }
+    });
+
+    Vue.component('parent',parent);
+
+
+    /*Vue.component('com',{
+      template:'<div>hello</div>'
+    });*/
+    var vm = new Vue({
+        el:'#app',
+    });
+</script>
+</body>
+</html>
