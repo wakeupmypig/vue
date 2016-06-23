@@ -7,17 +7,18 @@
 <body>
 <div id="app">
     <input type="text" v-model="data">
-    <parent :message="message" :message2.sync="data"></parent>
+    <!--//message = hello-->
+    <parent :me="message" :message2.sync="data"></parent>
 </div>
 <template id="tmpl">
-    {{message}} <input type="text" v-model="message2">
+    {{me}} <input type="text" v-model="message2">
 </template>
 <script src="vue.js"></script>
 <script>
     Vue.component('parent',{
         template:'#tmpl',
         props:{
-            'message':{
+            'me':{
                 type:[String],
                 default: function () {
                     return 2000;//不需要type验证
@@ -41,6 +42,9 @@
             data:'world'
         }
     });
+    //看组件上的属性，如果设置的属性前面有：说明是动态的，去vm上找到对应的数据  得到me = hello
+    //me 在我们parent组件上
+    //找到组件上props 对应的me，先默认走coerce ，如果没有coerce，并且数据没有传递走default  在依次验证
 </script>
 </body>
 </html>
