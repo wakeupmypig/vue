@@ -41,7 +41,7 @@
         template:'#parent',
         props:{ //对属性进行验证
             'message':{
-                type:[String,Number,Array,Object], //只能传递字符串类型的
+                type:[String], //只能传递字符串类型的
                 default: function () {
                     return 100 //默认值可以不符合type类型
                 },

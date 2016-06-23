@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="data">
+    <parent :message="message" :message2.sync="data"></parent>
+</div>
+<template id="tmpl">
+    {{message}} <input type="text" v-model="message2">
+</template>
+<script src="vue.js"></script>
+<script>
+    Vue.component('parent',{
+        template:'#tmpl',
+        props:{
+            'message':{
+                type:[String],
+                default: function () {
+                    return 2000;//不需要type验证
+                },
+                validator: function (v) {
+                    return v=='hello200'
+                },
+                coerce: function (v) {
+                    return v+200;//在所有验证之前先进行赋值
+                }
+            },
+            'message2':{
+                twoWay:true
+            }
+        }
+    });
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            message:'hello',
+            data:'world'
+        }
+    });
+</script>
+</body>
+</html>
