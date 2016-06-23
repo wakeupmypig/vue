@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <hello></hello>
+    <world></world>
+    <template id="tmpl">
+        <ul>
+            <li>home</li>
+            <li>profile</li>
+            <li>concat</li>
+        </ul>
+    </template>
+</div>
+<script src="vue.js"></script>
+<script>
+    //用extend方法创建出组建,在实例创建前
+    var hello = Vue.extend({
+        //template就是组件的模板
+        template:'#tmpl'
+    });
+    var world = Vue.extend({
+        //template就是组件的模板
+        template:'<div>world</div>'
+    });
+    //注册组件 第一个参数是组件的名字，第二个参数是创建的组件
+    Vue.component('hello',hello);
+    Vue.component('world',world);
+    var vm = new Vue({
+        el:'#app',
+    });
+</script>
+</body>
+</html>

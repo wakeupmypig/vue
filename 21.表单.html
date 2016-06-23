@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<div id="app">
+<div id="app" >
     //取value值 对应的checkbox 必须是数组 <br>
     <input checked type="checkbox" value="点击" v-model="name" name="all">
     <input type="checkbox" value="点击1" v-model="name" name="all">
@@ -22,14 +22,26 @@
         <option value="2">world</option>
         <option value="3">hello world</option>-->
     </select>
+
+   <!-- <select id="select">
+        <option value="1">4</option>
+        <option value="2">3</option>
+        <option value="3">2</option>
+    </select>-->
+
+
+    <input type="checkbox" v-model="name">{{name}}
 </div>
 <script src="vue.js"></script>
 <script>
+   /* select.onchange = function () {
+        alert(this.value)
+    }*/
     var vm = new Vue({
         el:"#app",
         data:{
            name:[],
-           selects:'1',
+           selects:'jw2',
            lists:[
                 {name:'jw1'},
                 {name:'jw2'},
