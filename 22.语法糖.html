@@ -43,7 +43,16 @@
                 default: function () {
                     return 100 //默认值可以不符合type类型
                 },
-                twoWay:true,
+                twoWay:true, //要求必须是双向的
+                validator: function (v) {
+                    //v就代表传进来的值
+                    return true
+                },
+                coerce: function (v) {
+                    console.log(v);
+                    //传进来的值 强制进行改变 在验证之前
+                    return v+'6000';//之后开始检测type是否符合
+                }
             },
             'message2':{
                 default: function () {
