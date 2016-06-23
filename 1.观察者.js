@@ -16,7 +16,7 @@ Event.prototype.on = function (eventName,callback) {
 };
 Event.prototype.once  = function (eventName,callback) {
     
-}
+};
 Event.prototype.off = function (eventName,callback) {
     var arr = this._events[eventName]
     if(arr){
@@ -36,7 +36,7 @@ Event.prototype.emit = function (eventName) {
             item.apply(that,args);
         })
     }
-}
+};
 // on off emit
 var e = new Event();
 function eat(who) {
@@ -51,3 +51,6 @@ e.emit('我饿了','你');
 e.emit('我饿了','你');
 e.emit('我饿了','你');
 e.emit('我饿了','你');
+
+
+

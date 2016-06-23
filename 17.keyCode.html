@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div id="app">
+
+    <input type="text" @keyup.enter="tap">
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            tap: function () {
+                alert('回车被抬起了')
+            }
+        }
+    });
+</script>
+</body>
+</html>
