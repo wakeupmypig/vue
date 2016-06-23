@@ -14,6 +14,7 @@
     <!--:message="'1'"-->
     <!--//这里是原本界面的data -->
     全局下的<input type="text" v-model="data">
+    <!--//默认是单向数据流-->
     <parent :message.sync="data"></parent>
     <template id="parent"><br>
         parent<input type="text" v-model="message">
